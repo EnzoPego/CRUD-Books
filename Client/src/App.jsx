@@ -1,11 +1,20 @@
-import React from 'react'
+import { BrowserRouter, Routes,  Route } from 'react-router-dom'
+import { Books } from './Books'
+import { CreateBook } from './CreateBook'
+import { UpdataeBook } from './UpdataeBook'
+import { Nav } from './Nav'
 
-const App = () => {
+
+export const App = () => {
   return (
-    <h1 className='"text-3xl font-bold underline"'>
-      Hello word!!!
-    </h1>
+    <BrowserRouter>
+    <Nav />
+      <Routes>
+        <Route path='/' element={<Books />}></Route>
+        <Route path='/create' element={<CreateBook />}></Route>
+        <Route path='/update' element={<UpdataeBook />}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
-export default App

@@ -11,7 +11,7 @@ app.use(cors())
 const db = mysql2.createPool({
     host:'localhost',
     user:'root',
-    password:'',
+    password:'enzzomysql',
     database:'crud_books'
 })
 
@@ -69,6 +69,6 @@ app.delete('/delete/:id', async (req, res)=>{
 })
 
 
-app.listen(3030,()=>{
+app.listen(3000,()=>{
     console.log('Running...')
 })

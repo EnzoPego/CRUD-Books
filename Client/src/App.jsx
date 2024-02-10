@@ -12,7 +12,7 @@ export const App = () => {
       <Routes>
         <Route path='/' element={<Books />}></Route>
         <Route path='/create' element={<CreateBook />}></Route>
-        <Route path='/update' element={<UpdataeBook />}></Route>
+        <Route path='/update/:id' element={<UpdataeBook />}></Route>
       </Routes>
     </BrowserRouter>
   )

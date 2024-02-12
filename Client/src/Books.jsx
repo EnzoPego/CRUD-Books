@@ -11,14 +11,24 @@ export const Books = () => {
   }, []);
 
   const infoBook = async () => {
-    const response = await axios.get("http://localhost:3000");
-    //console.log(response);
     try {
+      const response = await axios.get("http://localhost:3000");
+      //console.log(response);
       setBooks(response.data);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
+
+  const handelDelete = async(id) => {
+    try {
+      const response = await axios.delete(`http://localhost:3000/delete/${id}`)
+      console.log(response)
+      window.location.reload()
+    } catch (error) {
+      console.log(error)      
+    }
+  }
 
   return (
     <>
@@ -76,10 +86,12 @@ export const Books = () => {
                   Actions
                 </span>
                 <div className="space-x-2">
-                  <button className="bg-transparent hover:bg-yellow-500 text-gray-600  hover:text-white py-1 px-2 border border-gray-600 hover:border-transparent rounded text-xs font-bold">
-                    Edit
-                  </button>
-                  <button className="bg-transparent hover:bg-red-500 text-gray-600  hover:text-white py-1 px-2 border border-gray-600 hover:border-transparent rounded text-xs font-bold">
+                  <Link to={`/update/${book.id}`}  className="bg-transparent hover:bg-yellow-500 text-gray-600  hover:text-white py-1 px-2 border border-gray-600 hover:border-transparent rounded text-xs font-bold">
+                    Update
+                  </Link>
+                  <button className="bg-transparent hover:bg-red-500 text-gray-600  hover:text-white py-1 px-2 border border-gray-600 hover:border-transparent rounded text-xs font-bold"
+                  onClick={()=>{handelDelete(book.id)}}
+                  >
                     Delete
                   </button>
                 </div>

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes,  Route } from 'react-router-dom'
 import { Books } from './Books'
 import { CreateBook } from './CreateBook'
-import { UpdataeBook } from './UpdataeBook'
+import { UpdataeBook } from './UpdateBook'
 import { Nav } from './Nav'
 
 

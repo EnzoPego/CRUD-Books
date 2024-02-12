@@ -32,7 +32,8 @@ export const CreateBook = () => {
   
 
   return ( 
-    <> <div className="flex justify-center mt-20 text-gray-700 font-bold text-3xl">
+    <>
+      <div className="flex justify-center mt-20 text-gray-700 font-bold text-3xl">
           <h1>Add a Book</h1>
       </div>
       <form onSubmit={handleSubmit} 

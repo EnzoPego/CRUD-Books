@@ -12,7 +12,8 @@ const db = mysql2.createPool({
     host:'localhost',
     user:'root',
     password:'enzzomysql',
-    database:'crud_books'
+    database:'crud_books',
+    dateStrings:'date'
 })
 
 
@@ -66,6 +67,19 @@ app.delete('/delete/:id', async (req, res)=>{
     } catch (error) {
         res.status(500).send('Error to delete book')
     }
+})
+
+app.get('/getrecord/:id',async (req,res)=>{
+    const id = req.params.id
+    const sql = 'select * from book where id = ?'
+
+    try {
+        const [response] = await db.query(sql,[id])
+        res.json(response)
+    } catch (error) {
+        res.status(500).send('Error to delete book')
+    }
+
 })
 
 
